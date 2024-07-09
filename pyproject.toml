@@ -95,6 +95,7 @@ kubernetes = "^30.1.0"
 firecrawl-py = "^0.0.16"
 langchain-nvidia-ai-endpoints = "^0.1.2"
 langchain-google-calendar-tools = "^0.0.1"
+crewai = {extras = ["tools"], version = "^0.36.0"}
 
 
 [tool.poetry.group.dev.dependencies]
