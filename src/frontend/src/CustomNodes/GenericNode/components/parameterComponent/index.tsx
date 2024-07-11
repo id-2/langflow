@@ -53,6 +53,7 @@ import OutputComponent from "../OutputComponent";
 import HandleRenderComponent from "../handleRenderComponent";
 import OutputModal from "../outputModal";
 import { TEXT_FIELD_TYPES } from "./constants";
+import TableNodeComponent from "@/components/TableNodeComponent";
 
 export default function ParameterComponent({
   left,
@@ -278,7 +279,7 @@ export default function ParameterComponent({
       className={
         "relative mt-1 flex w-full flex-wrap items-center justify-between bg-muted px-5 py-2" +
         ((name === "code" && type === "code") ||
-        (name.includes("code") && proxy)
+          (name.includes("code") && proxy)
           ? " hidden"
           : "")
       }
@@ -422,7 +423,7 @@ export default function ParameterComponent({
                   disabled={disabled}
                   value={
                     !data.node!.template[name]?.value ||
-                    data.node!.template[name]?.value === ""
+                      data.node!.template[name]?.value === ""
                       ? [""]
                       : data.node!.template[name]?.value
                   }
@@ -520,6 +521,15 @@ export default function ParameterComponent({
               value={data.node?.template[name]?.value ?? ""}
               rangeSpec={data.node?.template[name]?.rangeSpec}
               onChange={handleOnNewValue}
+            />
+          </div>
+        </Case>
+        <Case condition={left === true && type === "table"}>
+          <div className="mt-2 w-full">
+            <TableNodeComponent columns={data.node?.template[name]?.columns}
+            onChange={handleOnNewValue}
+            tableTitle={data.node?.template[name]?.display_name ?? "Table"}
+            value={data.node?.template[name]?.value}
             />
           </div>
         </Case>
@@ -629,7 +639,7 @@ export default function ParameterComponent({
               editNode={false}
               value={
                 !data.node!.template[name]?.value ||
-                !Object.keys(data.node!.template[name]?.value || {}).length
+                  !Object.keys(data.node!.template[name]?.value || {}).length
                   ? {}
                   : data.node!.template[name]?.value
               }
@@ -646,7 +656,7 @@ export default function ParameterComponent({
               editNode={false}
               value={
                 !data.node!.template[name]?.value ||
-                !Object.keys(data.node!.template[name]?.value || {}).length
+                  !Object.keys(data.node!.template[name]?.value || {}).length
                   ? [{ "": "" }]
                   : convertObjToArray(data.node!.template[name]?.value, type!)
               }

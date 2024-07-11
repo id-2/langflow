@@ -132,6 +132,7 @@ import {
   SquarePen,
   Store,
   SunIcon,
+  Table,
   TerminalIcon,
   TerminalSquare,
   TextCursorInput,
@@ -572,4 +573,5 @@ export const nodeIconsLucide: iconsType = {
   MistralAI: MistralIcon,
   Upstash: UpstashSvgIcon,
   PGVector: CpuIcon,
+  Table:Table
 };
