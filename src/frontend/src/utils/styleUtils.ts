@@ -573,5 +573,5 @@ export const nodeIconsLucide: iconsType = {
   MistralAI: MistralIcon,
   Upstash: UpstashSvgIcon,
   PGVector: CpuIcon,
-  Table:Table
+  Table: Table,
 };
