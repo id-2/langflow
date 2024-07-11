@@ -14,6 +14,7 @@ from .inputs import (
     PromptInput,
     SecretStrInput,
     StrInput,
+    TableInput,
 )
 
 __all__ = [
@@ -32,4 +33,5 @@ __all__ = [
     "SecretStrInput",
     "StrInput",
     "MessageTextInput",
+    "TableInput",
 ]
