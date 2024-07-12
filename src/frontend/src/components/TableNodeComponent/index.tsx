@@ -64,43 +64,43 @@ export default function TableNodeComponent({
     };
   });
 
-    return (
-        <div className={"flex w-full items-center"}>
-            <div className="flex w-full items-center gap-3" data-testid={"div-" + id}>
-                <BaseModal>
-                    <BaseModal.Header description={"Add or edit your data"}>
-                        <div className="flex gap-2 align-baseline justify-center">
-                            <IconComponent name="Table" />
-                            {tableTitle}
-                        </div>
-                    </BaseModal.Header>
-                    <BaseModal.Content>
-                        <TableComponent
-                            ref={agGrid}
-                            onSelectionChanged={(event: SelectionChangedEvent) => {
-                                setSelectedNodes(event.api.getSelectedNodes());
-                            }}
-                            rowSelection="multiple"
-                            suppressRowClickSelection={true}
-                            editable={editable}
-                            pagination={true}
-                            addRow={addRow}
-                            onDelete={deleteRow}
-                            onDuplicate={duplicateRow}
-                            displayEmptyAlert={false}
-                            className="h-full w-full"
-                            columnDefs={AgColumns}
-                            rowData={value}
-                        ></TableComponent>
-                    </BaseModal.Content>
-                    <BaseModal.Footer submit={{ label: "close" }}></BaseModal.Footer>
-                    <BaseModal.Trigger>
-                        <div className="flex items-start justify-between align-middle">
-                            <span>Edit Data</span>
-                        </div>
-                    </BaseModal.Trigger>
-                </BaseModal>
+  return (
+    <div className={"flex w-full items-center"}>
+      <div className="flex w-full items-center gap-3" data-testid={"div-" + id}>
+        <BaseModal>
+          <BaseModal.Header description={"Add or edit your data"}>
+            <div className="flex justify-center gap-2 align-baseline">
+              <IconComponent name="Table" />
+              {tableTitle}
             </div>
-        </div>
-    );
+          </BaseModal.Header>
+          <BaseModal.Content>
+            <TableComponent
+              ref={agGrid}
+              onSelectionChanged={(event: SelectionChangedEvent) => {
+                setSelectedNodes(event.api.getSelectedNodes());
+              }}
+              rowSelection="multiple"
+              suppressRowClickSelection={true}
+              editable={editable}
+              pagination={true}
+              addRow={addRow}
+              onDelete={deleteRow}
+              onDuplicate={duplicateRow}
+              displayEmptyAlert={false}
+              className="h-full w-full"
+              columnDefs={AgColumns}
+              rowData={value}
+            ></TableComponent>
+          </BaseModal.Content>
+          <BaseModal.Footer submit={{ label: "close" }}></BaseModal.Footer>
+          <BaseModal.Trigger>
+            <div className="flex items-start justify-between align-middle">
+              <span>Edit Data</span>
+            </div>
+          </BaseModal.Trigger>
+        </BaseModal>
+      </div>
+    </div>
+  );
 }
