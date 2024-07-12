@@ -6,7 +6,7 @@ export default function StringReader({
   setValue,
   editable = false,
 }: {
-  string: string|null;
+  string: string | null;
   setValue: (value: string) => void;
   editable: boolean;
 }): JSX.Element {
